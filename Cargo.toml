@@ -1,3 +1,0 @@
-[workspace]
-
-members = ["rust-auth", "rust-broker", "rust-db", "rust-lib/rust-broker-lib"]
