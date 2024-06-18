@@ -1,0 +1,11 @@
+services:
+    stratos-auth:
+        build:
+            context: ./StratosAuth
+            dockerfile: Dockerfile.dev
+        env_file:
+            - ./StratosAuth/.env.dev
+        volumes:
+            - ./StratosAuth:/app
+        ports:
+            - '6543:6543'

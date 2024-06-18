@@ -1,6 +1,5 @@
-# Rust/Rust workspaces
-/target
-/Cargo.lock
+# Go Air
+tmp/
 
 # Postgres
 pg_logs/

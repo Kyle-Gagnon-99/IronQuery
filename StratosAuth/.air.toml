@@ -1,0 +1,19 @@
+# Config file for Air
+root = "."
+tmp_dir = "tmp"
+[build]
+  cmd = "go build -o ./tmp/stratos-auth ."
+  bin = "tmp/stratos-auth"
+  full_bin = "APP_ENV=dev ./tmp/stratos-auth"
+  include_ext = ["go"]
+  exclude_dir = ["vendor", "tmp"]
+  exclude_ext = ["swp", "md", "json"]
+  delay = 2000
+  stop_on_error = true
+[log]
+  level = "debug"
+  [log.colors]
+    main = "yellow"
+    watcher = "magenta"
+    builder = "cyan"
+    runner = "green"
