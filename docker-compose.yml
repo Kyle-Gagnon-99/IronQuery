@@ -1,0 +1,12 @@
+services:
+    # Add db service for all environments
+    db:
+        build:
+            context: ./db
+            dockerfile: Dockerfile
+
+    # Add redis service for all environments
+    redis:
+        build:
+            context: ./redis
+            dockerfile: Dockerfile
