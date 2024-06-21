@@ -1,0 +1,19 @@
+# Config file for Air
+root = "."
+tmp_dir = "tmp"
+[build]
+bin = "tmp/stratos-db"
+cmd = "go build -o ./tmp/stratos-db ."
+delay = 2000
+exclude_dir = ["vendor", "tmp"]
+exclude_ext = ["swp", "md", "json"]
+full_bin = "APP_ENV=dev ./tmp/stratos-db"
+include_ext = ["go"]
+stop_on_error = true
+[log]
+level = "debug"
+[log.colors]
+builder = "cyan"
+main = "yellow"
+runner = "green"
+watcher = "magenta"

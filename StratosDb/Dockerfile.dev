@@ -1,0 +1,31 @@
+FROM golang:latest AS builder
+
+# Set up the current working directory inside the container
+WORKDIR /app
+
+# Copy the Go Modules manifests
+COPY go.mod ./
+
+# Download all dependencies
+RUN go mod download
+
+# Copy the source code into the container
+COPY . .
+
+# Install air for live reloading
+RUN go install github.com/air-verse/air@latest
+
+# Stage 2: Run with air
+FROM builder AS runner
+
+WORKDIR /app
+
+# Copy the binary and source code from the builder
+COPY --from=builder /go/bin/air /usr/bin/air
+COPY --from=builder /app /app
+
+# Expose the port the app runs on
+EXPOSE ${STRATOS_DB_PORT}
+
+# Command to run the executable with air for live reloading
+CMD ["air", "-c", "/app/.air.toml"]

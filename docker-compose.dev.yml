@@ -6,22 +6,28 @@ services:
             dockerfile: Dockerfile.dev
         env_file:
             - ./StratosAuth/.env.dev
+        environment:
+            - STRATOS_AUTH_PORT=${STRATOS_AUTH_PORT}
         volumes:
-            - ./StratosAuthDev:/app
+            - ./StratosAuth:/app
         ports:
-            - '6543:6543'
+            - '${STRATOS_AUTH_PORT}:${STRATOS_AUTH_PORT}'
+        networks:
+            - backend
 
     # Add stratos-db service for development environment
     stratos-db:
         build:
             context: ./StratosDb
             dockerfile: Dockerfile.dev
-        env_file:
-            - ./StratosDb/.env.dev
         volumes:
-            - ./StratosDbDev:/app
+            - ./StratosDb:/app
         ports:
             - '6544:6544'
+        networks:
+            - backend
+        depends_on:
+            - db
 
     # Add pgadmin service for development environment
     pgadmin:
@@ -31,5 +37,12 @@ services:
             PGADMIN_DEFAULT_PASSWORD: password
         ports:
             - '5050:80'
+        networks:
+            - backend
         depends_on:
             - db
+
+volumes:
+    stratos-auth:
+    stratos-db:
+    pgadmin:

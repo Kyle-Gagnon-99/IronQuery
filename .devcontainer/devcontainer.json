@@ -4,5 +4,32 @@
 		"ghcr.io/devcontainers-contrib/features/protoc-asdf:1": {},
 		"ghcr.io/marcozac/devcontainer-features/protoc-gen-entgrpc:1": {},
 		"ghcr.io/devcontainers-contrib/features/protoc:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"PKief.material-icon-theme",
+				"equinusocio.vsc-material-theme-icons",
+				"Equinusocio.vsc-material-theme",
+				"formulahendry.code-runner",
+				"vadimcn.vscode-lldb",
+				"ms-azuretools.vscode-docker",
+				"dbaeumer.vscode-eslint",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.vscode-pull-request-github",
+				"golang.go",
+				"ms-vscode.hexeditor",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"VisualStudioExptTeam.intellicode-api-usage-examples",
+				"christian-kohler.npm-intellisense",
+				"esbenp.prettier-vscode",
+				"zxh404.vscode-proto3",
+				"bradlc.vscode-tailwindcss",
+				"austenc.tailwind-docs",
+				"redhat.vscode-yaml",
+				"be5invis.toml"
+			]
+		}
 	}
 }
